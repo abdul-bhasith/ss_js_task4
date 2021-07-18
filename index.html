@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+    <style>
+        button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 4px;   
+        }
+        button:hover{
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        #display{
+            align-content: center;
+        }
+        p{
+            top: 30%;
+            text-align: center;
+            
+        }
+        span{
+            padding: 4px;
+            border: 2px solid black;
+        }
+        .Button{
+            margin: 0;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class = Button>
+        <button id = "add" type ="button" onclick="addacc()">ADD</button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id = "display">
+        <p id = "content"></p>
+    </div>
+
+</body>
+<script>
+    function addacc(){
+        var accno = window.prompt("Enter your acoount number: ");
+        var creditlim = window.prompt("Enter your credit limit: ");
+        var bal = window.prompt("Enter your balalnce: ");
+        var exp = window.prompt("Enter your total expenditure: ");
+        var credit = window.prompt("Enter your total credit payment: ");
+        var newbal = parseInt(bal) + parseInt(exp) - parseInt(credit); 
+        if(newbal > parseInt(creditlim)){
+            
+            str = `Account number : ${accno} <br> Credit limit : ${creditlim} <br> 
+                    Current Blance : ${bal} <br> Total expenditure : ${exp} <br>
+                    Credit : ${credit} <br> New Balance : ${newbal} <br>
+                    <br>
+                    <span style="color: #ff0000">Status : Credit limit is Exceeded</span> <br> <br> <br> `
+
+            document.getElementById("content").innerHTML += str;         
+        }
+        else{
+            str = `Account number : ${accno} <br> Credit limit : ${creditlim} <br> 
+                    Current Blance : ${bal} <br> Total expenditure : ${exp} <br>
+                    Credit : ${credit} <br> New Balance : ${newbal} <br>
+                    <br>
+                    <span style="color: #ff0000">Status : Credit limit is not Exceeded</span> <br> <br> <br> `
+
+            document.getElementById("content").innerHTML += str;  
+        }
+    }
+    
+</script>
+</html>
